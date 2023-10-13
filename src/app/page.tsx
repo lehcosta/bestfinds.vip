@@ -1,3 +1,4 @@
+import { GalleryGrid } from "@/components/GalleryGrid";
 import { ProductCard } from "@/components/ProductCard";
 import Image from "next/image";
 
@@ -44,6 +45,12 @@ const products = [
   },
 ];
 
+const fakeImages = Array.from({ length: 24 }, (_, k) => k + 1).map(
+  (_, index) => ({
+    src: `https://picsum.photos/20${index}`,
+  })
+);
+
 export default function Home() {
   return (
     <>
@@ -61,18 +68,7 @@ export default function Home() {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-3 md:grid-cols-4 gap-2 md:gap-4">
-            {Array.from({ length: 12 }, (_, k) => k + 1).map((_, index) => (
-              <div
-                className={`w-28 h-24 bg-green-100 rounded-xl ${
-                  index >= 6 ? "hidden md:block" : ""
-                }`}
-                key={index}
-              >
-                1
-              </div>
-            ))}
-          </div>
+          <GalleryGrid images={fakeImages} />
         </div>
       </div>
       <div className="">
