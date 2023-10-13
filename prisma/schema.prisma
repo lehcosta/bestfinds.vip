@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model YoutubeChannel {
+  id          Int            @id @default(autoincrement())
+  name        String
+  channelId   String         @unique
+  channelLink String
+  lastSync    DateTime?
+  isSyncing   Boolean        @default(false)
+  isActive    Boolean        @default(true)
+  videos      YoutubeVideo[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model YoutubeVideo {
+  id          Int             @id @default(autoincrement())
+  title       String
+  description String?
+  url         String
+  videoId     String          @unique
+  thumbnail   String
+  products    Product[]
+  channel     YoutubeChannel? @relation(fields: [channel_id], references: [id])
+  channel_id  Int?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model Product {
+  id             Int           @id @default(autoincrement())
+  name           String
+  slug           String        @unique
+  description    String?
+  price          Float
+  category       Category      @relation(fields: [categoryId], references: [id])
+  categoryId     Int
+  youtubeVideo   YoutubeVideo? @relation(fields: [youtubeVideoId], references: [id])
+  youtubeVideoId Int
+  isPublished    Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String
+  slug        String    @unique
+  description String?
+  created_at  DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  products    Product[]
+}
