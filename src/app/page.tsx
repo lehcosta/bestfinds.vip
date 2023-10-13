@@ -12,13 +12,47 @@ export default function Home() {
                 <span className="px-1 rounded-sm bg-fuchsia-800">VIP</span>
               </h1>
               <nav className="flex gap-5">
-                <a href="#">All the finds</a>
-                <a href="#">Contact</a>
+                <a href="#" className="">
+                  {" "}
+                  All the finds
+                </a>
+                <a href="#" className="">
+                  {" "}
+                  Contact
+                </a>
               </nav>
             </div>
           </div>
         </nav>
       </header>
+      <div className="bg-gray-900 text-white">
+        <div className="mx-auto py-8 max-w-7xl flex flex-col gap-7 md:flex-row items-center justify-between px-4 sm:px-6 lg:px-8">
+          <div>
+            <h2 className="text-3xl md:text-4xl flex-auto max-w-md leading-tight">
+              The Best Hand-Picked Deals from{" "}
+              <span
+                style={{
+                  color: "#d1451c",
+                }}
+              >
+                AliExpress
+              </span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-2 md:gap-4">
+            {Array.from({ length: 12 }, (_, k) => k + 1).map((_, index) => (
+              <div
+                className={`w-28 h-24 bg-green-100 rounded-xl ${
+                  index >= 6 ? "hidden md:block" : ""
+                }`}
+                key={index}
+              >
+                1
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
