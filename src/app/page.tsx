@@ -46,25 +46,7 @@ const products = [
 
 export default function Home() {
   return (
-    <main className="bg-gray-300 min-h-screen">
-      <header className="relatve z-10">
-        <nav>
-          <div className="bg-gray-900">
-            <div className="mx-auto flex py-8 h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 text-white">
-              <h1 className="font-bold flex gap-1 text-xl">
-                <span>BestFinds</span>
-                <span className="px-1 rounded-sm bg-fuchsia-800">VIP</span>
-              </h1>
-              <nav className="flex gap-5">
-                <a href="#" className="hover:underline underline-offset-2">
-                  {" "}
-                  All the finds
-                </a>
-              </nav>
-            </div>
-          </div>
-        </nav>
-      </header>
+    <>
       <div className="bg-gray-900 text-white">
         <div className="mx-auto py-8 max-w-7xl flex flex-col gap-7 md:flex-row items-center justify-between px-4 sm:px-6 lg:px-8">
           <div>
@@ -116,12 +98,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <footer className="bg-gray-900">
-        <div className="mx-auto py-5 max-w-7xl px-4 sm:px-6 lg:px-8 text-white text-center md:text-right text-md">
-          <span>Copyright © {new Date().getFullYear()} bestfinds.vip</span>
-        </div>
-      </footer>
-    </main>
+    </>
   );
 }

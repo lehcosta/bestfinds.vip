@@ -38,7 +38,32 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body className={inter.className}>
-        {children}
+        <header className="relatve z-10">
+          <nav>
+            <div className="bg-gray-900">
+              <div className="mx-auto flex py-8 h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 text-white">
+                <a href="/">
+                  <h1 className="font-bold flex gap-1 text-xl">
+                    <span>BestFinds</span>
+                    <span className="px-1 rounded-sm bg-fuchsia-800">VIP</span>
+                  </h1>
+                </a>
+                <nav className="flex gap-5">
+                  <a href="/p" className="hover:underline underline-offset-2">
+                    {" "}
+                    All the finds
+                  </a>
+                </nav>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <main className="bg-gray-300 min-h-screen">{children}</main>
+        <footer className="bg-gray-900">
+          <div className="mx-auto py-5 max-w-7xl px-4 sm:px-6 lg:px-8 text-white text-center md:text-right text-md">
+            <span>Copyright © {new Date().getFullYear()} bestfinds.vip</span>
+          </div>
+        </footer>
         <Analytics />
       </body>
     </html>

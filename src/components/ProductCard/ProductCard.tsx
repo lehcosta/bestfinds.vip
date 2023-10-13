@@ -24,7 +24,7 @@ export const ProductCard = ({
       </div>
       <div className="text-center flex p-3">
         <a
-          href="#"
+          href={`/p/${slug}`}
           className="block flex-1 uppercase font-bold bg-lime-500 py-2 hover:bg-lime-600 transition-colors text-lg"
           onClick={() => {
             track("product-card-clicked", {
