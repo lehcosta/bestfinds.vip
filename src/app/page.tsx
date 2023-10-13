@@ -1,3 +1,4 @@
+import { ProductCard } from "@/components/ProductCard";
 import Image from "next/image";
 
 export default function Home() {
@@ -58,6 +59,16 @@ export default function Home() {
         <div className="mx-auto max-w-7xl flex flex-col gap-7 md:flex-row items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="bg-white w-full overflow-hidden py-12 rounded-xl mt-[-60px] shadow-sm flex items-center justify-center">
             <h1>teste</h1>
+          </div>
+        </div>
+      </div>
+
+      <div className="">
+        <div className="mx-auto py-8 max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
+            {Array.from({ length: 12 }, (_, k) => k + 1).map((_, index) => (
+              <ProductCard key={index} />
+            ))}
           </div>
         </div>
       </div>
