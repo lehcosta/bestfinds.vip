@@ -53,6 +53,14 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="">
+        <div className="bg-gray-900 h-24"></div>
+        <div className="mx-auto max-w-7xl flex flex-col gap-7 md:flex-row items-center justify-between px-4 sm:px-6 lg:px-8">
+          <div className="bg-white w-full overflow-hidden py-12 rounded-xl mt-[-60px] shadow-sm flex items-center justify-center">
+            <h1>teste</h1>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
